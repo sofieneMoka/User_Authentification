@@ -35,7 +35,7 @@ public class User implements Serializable{
 	@NotNull
 	String LastName ;
 	@NotNull
-	@Column(unique=true)
+	@Column(unique = true)
 	String Email ;
 	@NotNull
 	String Password ;

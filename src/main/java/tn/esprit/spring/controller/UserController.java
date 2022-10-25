@@ -39,8 +39,7 @@ public class UserController {
 	@PostMapping("/AddUser")
 	@ResponseBody
 		public String AddUser(User user) {
-			userServiceImpl.addUser(user);
-			return "User add successfully !!";
+			return userServiceImpl.addUser(user);
 		}
 	@DeleteMapping("/DeleteAllUser")
 	@ResponseBody
@@ -59,5 +58,17 @@ public class UserController {
 	public String UpdateRayon(User user) {
 		userServiceImpl.UpdateUser(user);
 		return"User updated successfully !!";
+	}
+	@PostMapping("/SendEmail/{email}")
+	@ResponseBody
+	public void sendEmail (@PathVariable String email) {
+		userServiceImpl.sendSimpleMail(email);
+
+	}
+	@PostMapping("/EmailVerified/{email}")
+	@ResponseBody
+	public String EmailVerified (@PathVariable String email,double CodeValidation) {
+		return userServiceImpl.EmailVerified(email, CodeValidation);
+
 	}
 }
